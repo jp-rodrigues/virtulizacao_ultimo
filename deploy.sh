@@ -1,4 +1,4 @@
 #!/bin/bash
-
-helm install -f Guestbook/Config/values.yaml guestbook
-helm install -f Redis/Config/values.yaml redis
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm upgrade redis bitnami/redis --install --namespace=virtualizacao_ultimo --values redis/config/values.yaml
+helm upgrade guestbook ./guestbook --install --namespace=virtualizacao_ultimo --values guestbook/config/values.yaml
